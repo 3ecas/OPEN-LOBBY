@@ -1,0 +1,512 @@
+/* RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+/* FUNDO */
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(34, 197, 94, 0.25), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.3), transparent 60%),
+    #020617;
+  z-index: -1;
+}
+
+/* LAYOUT 3 COLUNAS */
+.layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr) 260px;
+  gap: 16px;
+  padding: 16px;
+}
+
+/* COLUNA ESQUERDA: INSTRUÇÕES */
+.instructions-panel {
+  background: rgba(15,23,42,0.97);
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 32px);
+}
+
+.instructions-header {
+  padding: 12px 14px;
+  border-bottom: 1px solid #1f2937;
+}
+
+.instructions-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.instructions-header p {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+.instructions-body {
+  padding: 10px 14px 14px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.instructions-body h3 {
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.instructions-body h4 {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.instructions-body ul,
+.instructions-body ol {
+  margin-left: 18px;
+  margin-bottom: 6px;
+}
+
+.instructions-body li + li {
+  margin-top: 3px;
+}
+
+.instructions-body::-webkit-scrollbar {
+  width: 6px;
+}
+.instructions-body::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 999px;
+}
+
+/* COLUNA DIREITA: RECURSOS & AÇÕES */
+.right-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: calc(100vh - 32px);
+}
+
+.side-box {
+  flex: 1;
+  min-height: 0;
+  background: rgba(15,23,42,0.97);
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-box h3 {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.side-box ul {
+  list-style: none;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.side-box ul::-webkit-scrollbar {
+  width: 5px;
+}
+.side-box ul::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 999px;
+}
+
+/* COLUNA DO MEIO: JOGO */
+.game-page {
+  min-height: calc(100vh - 32px);
+  padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOP BAR DO JOGO */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+
+.top-bar h1 {
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  font-size: 1.4rem;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(34,197,94,0.18);
+  border: 1px solid rgba(34,197,94,0.5);
+  color: #bbf7d0;
+}
+
+.pile-info {
+  font-size: 0.8rem;
+  text-align: right;
+  color: #9ca3af;
+}
+
+/* SETUP & TABELA */
+.setup-panel,
+.table-panel {
+  margin-bottom: 12px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.section-title span {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.section-title-hand span:first-child {
+  font-size: 0.9rem;
+}
+
+.setup-inline {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+
+.setup-field label {
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 2px;
+  color: #9ca3af;
+}
+
+.setup-field select {
+  font-size: 0.8rem;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid #1f2937;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+.players-setup > div {
+  margin-bottom: 4px;
+}
+
+.players-setup label {
+  font-size: 0.8rem;
+  display: block;
+}
+
+.players-setup input {
+  width: 100%;
+  font-size: 0.8rem;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid #1f2937;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+.small-text {
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+/* BOTÕES */
+button {
+  border: none;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  background: #22c55e;
+  color: #022c22;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(34,197,94,0.35);
+}
+
+button.secondary {
+  background: rgba(15,23,42,0.95);
+  color: #e5e7eb;
+  border: 1px solid #374151;
+  box-shadow: none;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* LAYOUT INTERNO DO BOARD */
+.board-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+  gap: 12px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* CARTÕES GENÉRICOS */
+.card,
+.project-card,
+.player-board {
+  background: rgba(15,23,42,0.95);
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+  padding: 10px 12px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.hand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.card {
+  position: relative;
+  font-size: 0.8rem;
+}
+
+.card-type {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 1px solid #1f2937;
+}
+
+.type-recurso {
+  background: rgba(59,130,246,0.16);
+  color: #bfdbfe;
+  border-color: rgba(59,130,246,0.6);
+}
+
+.type-acao {
+  background: rgba(244,114,182,0.16);
+  color: #f9a8d4;
+  border-color: rgba(244,114,182,0.5);
+}
+
+.card-count {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 0.7rem;
+  background: rgba(15,23,42,0.96);
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid #374151;
+}
+
+/* PROJETO ATUAL */
+.project-card .resource-list {
+  list-style: none;
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.resource-list li {
+  padding: 1px 0;
+}
+
+.resource-list li.allocated {
+  text-decoration: line-through;
+  color: #4ade80;
+}
+
+.project-pill {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 1px solid #374151;
+  background: rgba(15,23,42,0.9);
+}
+
+.project-points {
+  font-size: 0.8rem;
+  margin-top: 2px;
+  color: #facc15;
+}
+
+/* AÇÕES EM BAIXO */
+.actions-row {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* OVERVIEW DE JOGADORES */
+.player-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.8rem;
+}
+
+.player-chip {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(15,23,42,0.95);
+  border: 1px solid #1f2937;
+}
+
+.player-chip.current {
+  border-color: #22c55e;
+}
+
+.player-chip .points {
+  color: #facc15;
+  margin-left: 4px;
+}
+
+/* PAINEL TODOS OS JOGADORES */
+.all-players-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 8px;
+}
+
+.player-board-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.player-board.current {
+  border-color: #22c55e;
+}
+
+.player-board-section-title {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  margin-bottom: 2px;
+  color: #9ca3af;
+}
+
+.player-board-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag-chip {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid #1f2937;
+}
+
+.tag-chip.resource {
+  border-color: rgba(59,130,246,0.6);
+}
+.tag-chip.action {
+  border-color: rgba(244,114,182,0.6);
+}
+
+/* LOG */
+.log {
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 0.75rem;
+  padding-right: 4px;
+}
+
+.log-entry {
+  padding: 3px 0;
+  border-bottom: 1px dashed #1f2937;
+}
+
+.log-entry .tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  padding: 1px 5px;
+  margin-right: 4px;
+  border-radius: 999px;
+  background: rgba(15,23,42,0.95);
+  border: 1px solid #1f2937;
+}
+
+/* WINNER */
+.winner-banner {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #facc15;
+}
+
+/* UTIL */
+.hidden {
+  display: none;
+}
+
+/* RESPONSIVE SIMPLES */
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .right-sidebar {
+    flex-direction: row;
+    max-height: none;
+  }
+
+  .side-box {
+    flex: 1;
+  }
+}

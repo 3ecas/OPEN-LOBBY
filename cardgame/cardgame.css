@@ -35,7 +35,7 @@ body {
   padding: 16px;
 }
 
-/* COLUNA ESQUERDA: INSTRUÇÕES */
+/* COLUNA ESQUERDA: INSTRUï¿½ï¿½ES */
 .instructions-panel {
   background: rgba(15,23,42,0.97);
   border-radius: 12px;
@@ -99,7 +99,7 @@ body {
   border-radius: 999px;
 }
 
-/* COLUNA DIREITA: RECURSOS & AÇÕES */
+/* COLUNA DIREITA: RECURSOS & Aï¿½ï¿½ES */
 .right-sidebar {
   display: flex;
   flex-direction: column;
@@ -254,7 +254,7 @@ body {
   color: #9ca3af;
 }
 
-/* BOTÕES */
+/* BOTï¿½ES */
 button {
   border: none;
   border-radius: 999px;
@@ -293,7 +293,7 @@ button:disabled {
   gap: 8px;
 }
 
-/* CARTÕES GENÉRICOS */
+/* CARTï¿½ES GENï¿½RICOS */
 .card,
 .project-card,
 .player-board {
@@ -381,7 +381,7 @@ button:disabled {
   color: #facc15;
 }
 
-/* AÇÕES EM BAIXO */
+/* Aï¿½ï¿½ES EM BAIXO */
 .actions-row {
   margin-top: 6px;
   display: flex;
@@ -509,4 +509,30 @@ button:disabled {
   .side-box {
     flex: 1;
   }
+.pt-sans-regular {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
+
+.pt-sans-bold {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.pt-sans-regular-italic {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.pt-sans-bold-italic {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+  }
+
+
+
